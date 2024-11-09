@@ -1,4 +1,9 @@
 import numpy as np
+from dotenv import load_dotenv
+import os
+
+# Завантажуємо .env файл
+load_dotenv()
 
 class GF2Polynomial:
     def __init__(self, coeffs):
@@ -21,19 +26,22 @@ class GF2Polynomial:
         :param other: інший елемент GF2Polynomial
         :return: новий GF2Polynomial після XOR
         """
-        max_len = max(len(self.coeffs), len(other.coeffs))
-        padded_self = np.pad(self.coeffs, (max_len - len(self.coeffs), 0))
-        padded_other = np.pad(other.coeffs, (max_len - len(other.coeffs), 0))
+        max_len       = max(len(self.coeffs), len(other.coeffs))
+        padded_self   = np.pad(self.coeffs, (max_len - len(self.coeffs), 0))
+        padded_other  = np.pad(other.coeffs, (max_len - len(other.coeffs), 0))
         result_coeffs = np.bitwise_xor(padded_self, padded_other)  # Використання XOR
         return GF2Polynomial(result_coeffs)
 
     def __repr__(self):
         return f"GF2Polynomial({self.coeffs.tolist()})"
-    
-# Два елементи в полі GF(2^491)
-p1 = GF2Polynomial([1, 0, 1, 1])  # Поліном x^3 + x + 1
-p2 = GF2Polynomial([1, 1, 0, 1])  # Поліном x^3 + x^2 + 1
 
-# Додавання
-p3 = p1 + p2
-print("p1 + p2 =", p3)
+
+# Завантажуємо значення полінома генератора з .env файлу
+generator_coeffs_str = os.getenv('GENERATOR_POLYNOMIAL')
+generator_coeffs = np.array(eval(os.getenv("GENERATOR_POLYNOMIAL")), dtype=np.int8)
+
+# Ініціалізуємо поліном генератор
+generator_polynomial = GF2Polynomial(generator_coeffs)
+
+# Виводимо поліном генератор
+print("Generator Polynomial:", generator_polynomial)
