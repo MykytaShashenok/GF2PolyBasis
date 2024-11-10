@@ -31,6 +31,10 @@ class GF2Polynomial:
         padded_other  = np.pad(other.coeffs, (max_len - len(other.coeffs), 0))
         result_coeffs = np.bitwise_xor(padded_self, padded_other)  # Використання XOR
         return GF2Polynomial(result_coeffs)
+    
+    def __mul__(self, poly_generator):
+        #result_coeffs = np.zeros(len(self.coeffs) + len(other.coeffs) - 1, dtype=np.int8)
+        pass
 
     def __repr__(self):
         return f"GF2Polynomial({self.coeffs.tolist()})"
