@@ -16,10 +16,7 @@ class GF2Polynomial:
 
     def trim(self):
         """Видаляє зайві старші нулі для правильного представлення."""
-        self.coeffs = np.trim_zeros(self.coeffs, 'f')
-       # self.coeffs = np.array([0], dtype=np.int8) if len(self.coef
-        if len(self.coeffs) == 0:
-            self.coeffs = np.array([0], dtype=np.int8)  # Забезпечуємо ненульову довжину для нульового полінома
+        self.coeffs = np.trim_zeros(self.coeffs, 'f') or np.array([0], dtype=np.int8)
 
     def __add__(self, other):
         """
