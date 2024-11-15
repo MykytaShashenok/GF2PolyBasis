@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
-from src.main import GF2Polynomial  
+from poly import GF2Polynomial  
 import os
-
+#Перепроверить тесты
 class TestGF2Polynomial(unittest.TestCase):
 
     def setUp(self):
