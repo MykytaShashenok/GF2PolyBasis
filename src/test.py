@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from main import GF2Polynomial  # Замініть на правильний шлях до вашого модуля
+from src.main import GF2Polynomial  # Замініть на правильний шлях до вашого модуля
 import os
 
 class TestGF2Polynomial(unittest.TestCase):
