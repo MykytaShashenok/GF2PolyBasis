@@ -4,6 +4,10 @@ import os
 
 load_dotenv()
 
+generator_coeffs_str = os.getenv('GENERATOR_POLYNOMIAL')
+generator_coeffs     = np.array(eval(os.getenv("GENERATOR_POLYNOMIAL")), dtype=np.int8)
+#generator_polynomial = GF2Polynomial(generator_coeffs)
+
 class GF2Polynomial:
     def __init__(self, coeffs):
         self.coeffs = np.array(coeffs, dtype=np.int8) & 1
@@ -54,15 +58,16 @@ class GF2Polynomial:
         
         return result
 
-generator_coeffs_str = os.getenv('GENERATOR_POLYNOMIAL')
-generator_coeffs = np.array(eval(os.getenv("GENERATOR_POLYNOMIAL")), dtype=np.int8)
 generator_polynomial = GF2Polynomial(generator_coeffs)
+# generator_coeffs_str = os.getenv('GENERATOR_POLYNOMIAL')
+# generator_coeffs = np.array(eval(os.getenv("GENERATOR_POLYNOMIAL")), dtype=np.int8)
+# generator_polynomial = GF2Polynomial(generator_coeffs)
 
-poly = GF2Polynomial([1, 1, 1])
-squared_result = poly.square()
-squared_result_multiply = poly * poly
-power_result = poly.power(2**491 - 2)
+# poly = GF2Polynomial([1, 1, 1])
+# squared_result = poly.square()
+# squared_result_multiply = poly * poly
+# power_result = poly.power(2**491 - 2)
 
-print("Result of squaring:", squared_result)
-print("Result of squaring (multiplication):", squared_result_multiply)
-print("Result of raising to the power of 2^251:", power_result)
+# print("Result of squaring:", squared_result)
+# print("Result of squaring (multiplication):", squared_result_multiply)
+# print("Result of raising to the power of 2^251:", power_result)

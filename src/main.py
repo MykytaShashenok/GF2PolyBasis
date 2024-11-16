@@ -12,9 +12,14 @@ generator_polynomial = GF2Polynomial(generator_coeffs)
 def main():
     poly = GF2Polynomial([1, 1, 1])
 
+    poly1 = GF2Polynomial([1, 0, 1])  # x^2 + 1
+    poly2 = GF2Polynomial([1, 1])     # x + 1
+
     squared_result = poly.square()
     squared_result_multiply = poly * poly
-    power_result = poly.power(2**491 - 2)
+    power_result = poly.power(2**491)
+
+    print(poly1 + poly2)
 
     print("Result of squaring:", squared_result)
     print("Result of squaring (multiplication):", squared_result_multiply)

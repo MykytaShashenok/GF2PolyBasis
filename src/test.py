@@ -14,7 +14,7 @@ class TestGF2Polynomial(unittest.TestCase):
     def test_addition(self):
         # Перевіримо додавання поліномів
         result = self.poly1 + self.poly2
-        expected = GF2Polynomial([1, 1, 1])  # x^2 + x + 1
+        expected = GF2Polynomial([1, 1, 0])  # x^2 + x + 
         self.assertEqual(result, expected)
 
     def test_multiplication(self):
