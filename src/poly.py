@@ -57,6 +57,9 @@ class GF2Polynomial:
             exp //= 2
         
         return result
+    
+    def trace(self) :
+        pass
 
 generator_polynomial = GF2Polynomial(generator_coeffs)
 # generator_coeffs_str = os.getenv('GENERATOR_POLYNOMIAL')
