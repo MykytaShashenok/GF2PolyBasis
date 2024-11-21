@@ -47,6 +47,7 @@ class TestGF2Polynomial(unittest.TestCase):
         poly_with_trailing_zeros = GF2Polynomial([1, 0, 0, 1, 0])  # x^4 + 1
         #need to 
                 #need to rewright
+        #incorrect tests
         poly_with_trailing_zeros.trim()
         expected = GF2Polynomial([1, 0, 0, 1])  # x^4 + 1
         self.assertEqual(poly_with_trailing_zeros, expected)
