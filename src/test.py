@@ -56,7 +56,7 @@ class TestGF2Polynomial(unittest.TestCase):
         # Перевіримо випадок з порожнім поліномом
         empty_poly = GF2Polynomial([0])  # Порожній поліном (0)
 
-        #changes123123
+        #changes123123124124124124
         
         
         self.assertEqual(empty_poly, GF2Polynomial([0]))
