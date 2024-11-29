@@ -58,6 +58,7 @@ class TestGF2Polynomial(unittest.TestCase):
 
         #changes123123124124124124
         123123
+        123
         
         self.assertEqual(empty_poly, GF2Polynomial([0]))
 
