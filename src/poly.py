@@ -59,6 +59,7 @@ class GF2Polynomial:
         return result
     
     def trace(self) :
+        # just need to summarize powers of 2 
         pass
 
 generator_polynomial = GF2Polynomial(generator_coeffs)
